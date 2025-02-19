@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Dual-Axis Chart for Mice Data</title>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script type="module" src="proj3.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+    }
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+    .line {
+      fill: none;
+      stroke-width: 2px;
+    }
+    .circle {
+      cursor: pointer;
+    }
+    #legend {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    #controls {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Heat and Motion: How Time and Gender Affect Mouse Behavior and Temperature</h1>
+
+  <div id="controls">
+    <label for="femaleMouseSelect">Select Female Mouse:</label>
+    <select id="femaleMouseSelect"></select>
+
+    <label for="maleMouseSelect">Select Male Mouse:</label>
+    <select id="maleMouseSelect"></select>
+
+    <label for="dataTypeSelect">Select Data Type:</label>
+    <select id="dataTypeSelect">
+      <option value="Activity">Activity</option>
+      <option value="Temperature">Temperature</option>
+    </select>
+
+    <button id="dayNightToggle" data-mode="all">Show: All</button>
+    <button id="estrusToggle" data-active="false">Highlight Estrus Period</button>
+  </div>
+
+  <div id="legend">
+    <span style="color: blue;">■ Female</span>
+    <span style="color: red;">■ Male</span>
+  </div>
+  <div id="varianceDisplay" style="
+  position: absolute; 
+  top: 50px; 
+  right: 20px; 
+  background: rgba(255, 255, 255, 0.8); 
+  padding: 10px; 
+  border: 1px solid black; 
+  border-radius: 5px;">
+  Variance(SSD): 0.00
+</div>
+
+  <svg width="800" height="500"></svg>
+</body>
+</html>
+
